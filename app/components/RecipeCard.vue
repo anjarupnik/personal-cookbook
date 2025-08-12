@@ -3,6 +3,7 @@ import type { Recipe } from "~/types/recipe";
 
 const props = defineProps<{
   recipe: Recipe;
+  index: number;
 }>();
 const reducedTags = props.recipe.tags.filter((_, i) => i < 2);
 </script>
@@ -11,7 +12,13 @@ const reducedTags = props.recipe.tags.filter((_, i) => i < 2);
   <NuxtLink :to="`recipes/${recipe.slug}`">
     <div class="card bg-base-100 w-full shadow-sm">
       <figure>
-        <img :src="recipe.photo" :alt="recipe.name" />
+        <img
+          :src="recipe.photo"
+          :alt="recipe.name"
+          :class="[
+            index % 7 === 0 ? 'size-full' : 'aspect-square object-cover w-full',
+          ]"
+        />
       </figure>
       <div class="card-body">
         <h2 class="card-title">
@@ -34,4 +41,8 @@ const reducedTags = props.recipe.tags.filter((_, i) => i < 2);
   </NuxtLink>
 </template>
 
-<style scoped></style>
+<style scoped>
+.card-body {
+  padding: 8px;
+}
+</style>

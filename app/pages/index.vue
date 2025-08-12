@@ -8,7 +8,7 @@ const recipes = useState<Recipe[]>("recipes");
 <template>
   <div>
     <h1 class="text-center text-3xl md:text-5xl mb-8 md:mb-20 italic">
-      What would you like to cook today?
+      "What would you like to cook today?"
     </h1>
     <RecipesList :recipes="recipes" />
   </div>

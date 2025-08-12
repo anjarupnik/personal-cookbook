@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import PlusIcon from "~/assets/icons/plus.svg";
+import PlateIcon from "~/assets/icons/plate.svg";
 import type { Recipe } from "~/types/recipe";
 
 const url = ref("");
@@ -26,7 +27,8 @@ async function addRecipe() {
 <template>
   <div>
     <button class="btn btn-accent" onclick="add_recipe_modal.showModal()">
-      <PlusIcon width="24px" />
+      <PlateIcon width="24px" />
+      <span class="text-white hidden md:inline">Add new</span>
     </button>
     <dialog id="add_recipe_modal" ref="dialog" class="modal">
       <div class="modal-box">
@@ -61,5 +63,3 @@ async function addRecipe() {
     </dialog>
   </div>
 </template>
-
-<style scoped></style>

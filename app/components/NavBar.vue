@@ -10,7 +10,7 @@ import AddRecipeModal from "./AddRecipeDialog.vue";
         <Logo class="logo w-16 md:w-30" />
       </NuxtLink>
 
-      <h2 class="text-xl md:text-4xl ml-4 lg:ml-8 font-serif">
+      <h2 class="text-xl md:text-4xl ml-4 lg:ml-8 font-serif uppercase">
         Anja's cookbook
       </h2>
     </div>
@@ -20,9 +20,3 @@ import AddRecipeModal from "./AddRecipeDialog.vue";
     </div>
   </div>
 </template>
-
-<style lang="css" scoped>
-h2 {
-  text-transform: uppercase;
-}
-</style>
