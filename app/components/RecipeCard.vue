@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import type { Recipe } from "~/types/recipe";
 
-defineProps<{
+const props = defineProps<{
   recipe: Recipe;
 }>();
+const reducedTags = props.recipe.tags.filter((_, i) => i < 2);
 </script>
 
 <template>
   <NuxtLink :to="`recipes/${recipe.slug}`">
-    <div class="card bg-base-100 h-full shadow-sm">
+    <div class="card bg-base-100 w-full shadow-sm">
       <figure>
         <img :src="recipe.photo" :alt="recipe.name" />
       </figure>
@@ -21,7 +22,7 @@ defineProps<{
         </p>
         <div class="card-actions justify-end">
           <div
-            v-for="tag in recipe.tags"
+            v-for="tag in reducedTags"
             :key="tag"
             class="badge badge-outline"
           >

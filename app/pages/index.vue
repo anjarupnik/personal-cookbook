@@ -7,9 +7,11 @@ const recipes = useState<Recipe[]>("recipes");
 
 <template>
   <div>
-    <h2 class="text-center text-2xl mb-8 md:mb-16">
+    <h1 class="text-center text-3xl md:text-5xl mb-8 md:mb-20 italic">
       What would you like to cook today?
-    </h2>
+    </h1>
     <RecipesList :recipes="recipes" />
   </div>
 </template>
+
+<style lang="css" scoped></style>

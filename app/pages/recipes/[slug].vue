@@ -11,7 +11,7 @@ const recipe = recipes.value.find((rec) => rec.slug === slug);
   <div v-if="recipe">
     <div class="flex flex-col md:flex-row gap-4">
       <div class="w-100 md:w-1/2 order-2 md:order-1">
-        <h2 class="text-5xl mb-6">{{ recipe.name }}</h2>
+        <h1 class="text-5xl mb-6">{{ recipe.name }}</h1>
         <div>
           <div>
             <span>TOTAL TIME: </span>

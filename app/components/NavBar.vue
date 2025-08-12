@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import Logo from "~/assets/icons/logo.svg";
-import AddRecipeModal from "./AddRecipeModal.vue";
+import AddRecipeModal from "./AddRecipeDialog.vue";
 </script>
 
 <template>
-  <div class="navbar bg-base-100 shadow-sm">
+  <div class="navbar bg-base-100 shadow-sm border-b-1 border-white">
     <div class="navbar-start">
-      <NuxtLink to="/" class="logo">
-        <Logo />
+      <NuxtLink to="/">
+        <Logo class="logo w-16 md:w-30" />
       </NuxtLink>
+
+      <h2 class="text-xl md:text-4xl ml-4 lg:ml-8 font-serif">
+        Anja's cookbook
+      </h2>
     </div>
-    <div class="navbar-center hidden lg:flex">
-      <h1 class="text-4xl">Anja's cookbook</h1>
-    </div>
+
     <div class="navbar-end">
       <AddRecipeModal />
     </div>
@@ -20,11 +22,7 @@ import AddRecipeModal from "./AddRecipeModal.vue";
 </template>
 
 <style lang="css" scoped>
-.logo {
-  width: 120px;
-}
-
-.modal-title {
+h2 {
   text-transform: uppercase;
 }
 </style>
