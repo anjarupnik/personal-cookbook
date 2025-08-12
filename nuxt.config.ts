@@ -7,4 +7,13 @@ export default defineNuxtConfig({
   svgo: {
     defaultImport: "component",
   },
+  app: {
+    head: {
+      title: "Anja's cookbok",
+      htmlAttrs: {
+        lang: "en",
+      },
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
+  },
 });

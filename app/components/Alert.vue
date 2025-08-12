@@ -1,0 +1,35 @@
+<script setup lang="ts">
+import type { Alert } from "~/types/alert";
+
+const alert = useState<Alert>("alert");
+
+onMounted(() => {
+  setTimeout(() => {
+    alert.value.text = "";
+  }, 2000);
+});
+</script>
+
+<template>
+  <div
+    role="alert"
+    :class="['alert fixed top-30 left-1/2', `alert-${alert.type}`]"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 shrink-0 stroke-current"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <span>{{ alert.text }}</span>
+  </div>
+</template>
+
+<style scoped></style>

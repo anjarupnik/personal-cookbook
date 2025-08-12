@@ -8,6 +8,10 @@ const route = useRoute();
 const { slug } = route.params;
 const recipes = useState<Recipe[]>("recipes");
 const recipe = recipes.value.find((rec) => rec.slug === slug);
+
+useHead({
+  title: recipe?.name,
+});
 </script>
 
 <template>

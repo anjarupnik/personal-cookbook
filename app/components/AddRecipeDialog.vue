@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import PlusIcon from "~/assets/icons/plus.svg";
 import PlateIcon from "~/assets/icons/plate.svg";
 import type { Recipe } from "~/types/recipe";
+import type { Alert } from "~/types/alert";
 
 const url = ref("");
 const recipes = useState<Recipe[]>("recipes");
 const dialog = ref<HTMLDialogElement | null>(null);
+const loadingRecipe = useState<boolean>("loadingRecipe");
+const alert = useState<Alert>("alert");
 
 async function addRecipe() {
   try {
+    dialog.value?.close();
+    loadingRecipe.value = true;
     const res = await $fetch<Recipe>("http://localhost:8080/recipes", {
       method: "POST",
       body: {
@@ -17,9 +21,19 @@ async function addRecipe() {
     });
     recipes.value = [res, ...recipes.value];
 
-    dialog.value?.close();
+    loadingRecipe.value = false;
+    alert.value = {
+      type: "success",
+      text: "Recipe successfully added",
+    };
+    url.value = "";
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    loadingRecipe.value = false;
+    alert.value = {
+      type: "success",
+      text: "Adding recipe failed. Please try again!",
+    };
   }
 }
 </script>
