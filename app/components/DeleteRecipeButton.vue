@@ -8,7 +8,7 @@ const alert = useState<Alert>("alert");
 
 async function deleteItem() {
   try {
-    await useFetch(`http://localhost:8080/recipes/${props.slug}`, {
+    await useFetch(`/api/recipes/${props.slug}`, {
       method: "delete",
     });
 
@@ -19,7 +19,7 @@ async function deleteItem() {
 
     alert.value = {
       type: "success",
-      text: "Recipe successfully delete",
+      text: "Recipe successfully deleted",
     };
   } catch (error) {
     console.log(error);

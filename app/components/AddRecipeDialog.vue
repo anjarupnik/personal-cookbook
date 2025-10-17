@@ -13,7 +13,7 @@ async function addRecipe() {
   try {
     dialog.value?.close();
     loadingRecipe.value = true;
-    const res = await $fetch<Recipe>("http://localhost:8080/recipes", {
+    const res = await $fetch<Recipe>("/api/recipes", {
       method: "POST",
       body: {
         url: url.value,

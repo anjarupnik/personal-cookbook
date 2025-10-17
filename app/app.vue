@@ -2,7 +2,7 @@
 import type { Recipe } from "~/types/recipe";
 import type { Alert } from "~/types/alert";
 
-const { data } = await useFetch<Recipe[]>("http://localhost:8080/recipes");
+const { data } = await useFetch<Recipe[]>("/api/recipes");
 
 useState<Recipe[]>("recipes", () => data.value ?? []);
 useState<boolean>("loadingRecipe", () => false);

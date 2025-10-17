@@ -59,7 +59,7 @@ img {
 }
 
 button {
-  z-index: 1000;
+  z-index: 300;
   width: fit-content;
   justify-self: end;
 }
