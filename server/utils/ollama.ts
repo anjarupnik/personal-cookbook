@@ -27,18 +27,40 @@ function htmlToMarkdown(html: string) {
 }
 
 async function getJSONData(markdown: string) {
-  const prompt = `You are an expert recipe data extractor. Your task is to extract recipe data from the provided content.
-  Return ONLY valid JSON with EXACTLY the following fields and formats: name: string, photo: string (find img tag closest to the recipe), link: string,
-  timeToPrepare: string, servings: number, slug: string, shortDescription: string, tags: array of strings (1 word per tag describing type of the dish), ingredients: array of strings(example: 1 Cucumber, 2 tbs Maple Syrup),
-  instructions: array of strings. Return ONLY the JSON without any additional text. Text: ${markdown}`;
+  const prompt = `
+      You are an expert recipe data extractor and translator.
+
+      TASK:
+      1. Extract all recipe details and output ONLY **valid JSON**.
+      2. Translate ALL text values (including name, ingredients, instructions, description, etc.) to English.
+      3. Your output must be in this exact JSON structure, with correct field names and valid JSON:
+
+      {
+        "name": string,
+        "photo": string,         // closest <img> to recipe
+        "link": string,
+        "timeToPrepare": string,
+        "servings": number,
+        "slug": string,
+        "shortDescription": string,
+        "tags": [string],
+        "ingredients": [string],
+        "instructions": [string]
+      }
+
+      Do NOT include any explanation, comments, or text outside of the JSON object.
+
+      CONTENT:
+      ${markdown}
+      `;
 
   const res = await ollama.generate({
-    model: "mistral",
+    model: "llama3.1",
     prompt,
     format: "json",
     stream: false,
     keep_alive: "30m",
-    options: { temperature: 0.1, num_ctx: 8000 },
+    options: { temperature: 0, num_ctx: 8000 },
   });
 
   return JSON.parse(res.response);

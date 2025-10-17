@@ -8,7 +8,7 @@ const alert = useState<Alert>("alert");
 
 async function deleteItem() {
   try {
-    await useFetch(`/api/recipes/${props.slug}`, {
+    await $fetch(`/api/recipes/${props.slug}`, {
       method: "delete",
     });
 
