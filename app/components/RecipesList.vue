@@ -12,11 +12,7 @@ defineProps<{
     <ul
       class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 list-none p-0 m-0"
     >
-      <li
-        v-for="(recipe, index) in recipes"
-        :key="recipe.slug"
-        :class="[index % 7 === 0 && 'col-span-2']"
-      >
+      <li v-for="(recipe, index) in recipes" :key="recipe.slug">
         <RecipeCard :recipe="recipe" :index="index" />
       </li>
     </ul>

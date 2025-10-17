@@ -28,12 +28,14 @@ useHead({
 
           <div class="flex flex-row gap-4">
             <div class="w-1/2">
-              <div class="divider"><TimeIcon width="100px" /></div>
+              <div class="divider">
+                <TimeIcon width="100px" stroke="grey" />
+              </div>
               <p class="text-center mt-6">{{ recipe.timeToPrepare }}</p>
             </div>
 
             <div class="w-1/2">
-              <div class="divider"><PlateIcon width="100px" /></div>
+              <div class="divider"><PlateIcon width="100px" fill="grey" /></div>
               <p class="text-center mt-6">{{ recipe.servings }}</p>
             </div>
           </div>
@@ -50,8 +52,9 @@ useHead({
           </ul>
         </div>
       </div>
-      <div class="w-full md:w-1/2 order-1 md:order-2 max-w-fit">
-        <img :src="recipe.photo" :alt="recipe.name" />
+
+      <div class="w-100 md:w-1/2 order-1 md:order-2">
+        <img :src="recipe.photo" :alt="recipe.name" width="100%" />
       </div>
     </div>
 
@@ -61,7 +64,7 @@ useHead({
 
       <div class="flex flex-col md:flex-row gap-8">
         <div class="md:w-1/3 flex items-center justify-center">
-          <MealIcon class="w-30 md:w-50" />
+          <MealIcon class="w-30 md:w-50" fill="grey" />
         </div>
         <ol class="list-decimal md:w-2/3">
           <li

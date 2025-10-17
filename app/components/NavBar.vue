@@ -11,7 +11,7 @@ import AddRecipeModal from "./AddRecipeDialog.vue";
       </NuxtLink>
 
       <h2 class="text-xl md:text-4xl ml-4 lg:ml-8 font-serif uppercase">
-        Anja's cookbook
+        Weekly recipes
       </h2>
     </div>
 
