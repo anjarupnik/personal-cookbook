@@ -53,7 +53,7 @@ useHead({
         </div>
       </div>
 
-      <div class="w-100 md:w-1/2 order-1 md:order-2">
+      <div class="w-fit md:w-1/2 order-1 md:order-2">
         <img :src="recipe.photo" :alt="recipe.name" width="100%" />
       </div>
     </div>
